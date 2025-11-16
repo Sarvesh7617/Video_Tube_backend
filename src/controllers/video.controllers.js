@@ -211,11 +211,11 @@ const publishAVideo=asyncHandler(async(req,res)=>{
         description,
         duration:videoFile.duration,
         videoFile:{
-            url:videoFile.url,
+            url:videoFile.secure_url,
             public_id:videoFile.public_id
         },
         thumbnail:{
-            url:thumbnail.url,
+            url:thumbnail.secure_url,
             public_id:thumbnail.public_id
         },
         owner:req.user?._id,
@@ -456,7 +456,7 @@ const updateVideo=asyncHandler(async(req,res)=>{
                 title,
                 description,
                 thumbnail:{
-                    url:thumbnail.url,
+                    url:thumbnail.secure_url,
                     public_id:thumbnail.public_id
                 }
             }

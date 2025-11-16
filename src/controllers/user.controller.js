@@ -65,9 +65,16 @@ const registration=asyncHandler(async(req,res)=>{
       throw new ApiError(400,"Avatar file is required")
 
 
-    const user=await User.create({
-        fullname,avatar:avatar.url,coverImage:coverImage?.url || "",email,password,username:username.toLowerCase()
-    })
+    const user=await User.create(
+      {
+        fullname,
+        avatar:avatar.secure_url,
+        coverImage:coverImage?.secure_url || "",
+        email,
+        password,
+        username:username.toLowerCase()
+      }
+    )
 
     const checkUser=await User.findById(user._id).select(
         "-password -refreshToken"
@@ -310,14 +317,14 @@ const updateUserAvatar=asyncHandler(async(req,res)=>{
 
   const avatar=await uploadOncloudinary(avatarLocalpath)
 
-  if(!avatar.url)
+  if(!avatar.secure_url)
     throw new ApiError(400,"Error while uploading on avatar")
 
   const user=await User.findByIdAndUpdate(
     req.user?._id,
     {
       $set:{
-        avatar:avatar.url
+        avatar:avatar.secure_url
       }
     },
     {new:true}
@@ -344,14 +351,14 @@ const updateUsercoverImage=asyncHandler(async(req,res)=>{
 
   const coverImage=await uploadOncloudinary(coverImageLocalpath)
 
-  if(!coverImage.url)
+  if(!coverImage.secure_url)
     throw new ApiError(400,"Error while uploading on cover Image")
 
   await User.findByIdAndUpdate(
     req.user?._id,
     {
       $set:{
-        coverImage:coverImage.url
+        coverImage:coverImage.secure_url
       }
     },
     {new:true}

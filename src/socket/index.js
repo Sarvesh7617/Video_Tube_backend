@@ -5,7 +5,6 @@ export function setupSocketIO(socketIO) {
         console.log(`WebSocket connected: ${socket.id}`);
 
         socket.on('startUpload', async (data) => {
-            console.log('⬆️ Upload started:', data);
             const video = await uploadOncloudinary(data.videoFilePath, socket);
             const thumbnail = await uploadOncloudinary(data.thumbnailPath, socket);
         });
