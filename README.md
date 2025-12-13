@@ -80,8 +80,7 @@ npm run dev
 ## 📂Project Structure
 
 ```bash
-# 📂 Project Root
-.
+videoTube_backend
 ├── public/                                 # Publicly accessible static files
 │   └── temp/                               # Temporary storage (e.g., cached uploads, temp files)
 │
