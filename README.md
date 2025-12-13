@@ -33,7 +33,7 @@ Built with **Node.js, Express, MongoDB, Cloudinary, Multer, Socket.io**.
 ### 1. Clone the repository
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/Sarvesh7617/Video_Tube_backend.git
 ```
 
 ### 2. Navigate to backend folder
@@ -78,7 +78,7 @@ npm run dev
 
 ## 📂Project Structure
 
-```markdown
+```bash
 # 📂 Project Root
 .
 ├── public/                                 # Publicly accessible static files
