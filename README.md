@@ -51,6 +51,7 @@ npm install
 ### 🔐4. Set Environment Variables
 
 #### Create a .env file in the root of your project:
+
 ```bash
 PORT=Your_Port
 
